@@ -1,6 +1,6 @@
 <?php
 
-// include 'config.php';
+include 'config.php';
 
-// echo(" database connected succesfully")
+echo(" database connected succesfully")
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-// $serverName = 'localhost';
-// $userName = 'root';
-// $password = '';
-// $dbName = 'lms';
+$serverName = 'localhost';
+$userName = 'root';
+$password = '';
+$dbName = 'lms';
 
-// $connec = mysqli_connect($serverName, $userName, $password, $dbName);
+$connec = mysqli_connect($serverName, $userName, $password, $dbName);
 
-// if(!$connec){
-//     die("connection field : " . mysqli_connect_error());
-// }
+if(!$connec){
+    die("connection field : " . mysqli_connect_error());
+}
