@@ -45,7 +45,99 @@ body {
 .footer {
     text-align: center;
     padding: 15px 0;
-    margin-top: 20px;
+    margin-bottom: 10px;
     background: #e0e0e0;
     font-size: 14px;
+}
+.courses-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.courses-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.courses-table thead {
+    background: #007bff;
+    color: #fff;
+}
+
+.courses-table th,
+.courses-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.courses-table tr:hover {
+    background: #f5f8ff;
+    color: #000;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.countainer-btn-delet{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
+}
+
+.edit-btn,
+.delete-btn,
+.add-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.add-btn{
+    background: #07ff45;
+    color: #ffffff;
+}
+.edit-btn {
+    background: #ffc107;
+    color: #000;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #bb2d3b;
+}
+@media (max-width: 600px) {
+    .courses-table th, .courses-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
 }
