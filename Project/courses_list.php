@@ -2,7 +2,7 @@
 include "config.php";
 include "header.php";
 
-$sql = 'SELECT * FROM courses ';
+$sql = 'SELECT * FROM courses';
 $resul = mysqli_query($connec, $sql);
 $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
 
@@ -13,6 +13,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th> <!-- Nouvelle colonne -->
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Niveau</th>
@@ -25,6 +26,16 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
         <?php foreach($element as $ele){ ?>
             <tr>
                 <td><?= $ele['id'] ?></td>
+
+                <td>
+                <?php
+                if(!empty($ele['image'])){ ?>
+                <img src="uploads/<?= $ele['image'] ?>" alt="image" class="img-aa">
+                <?php }else{ ?>
+                    <span style = "color: rgba(142, 142, 142, 0.54)" >Aucun Image</span>
+                <?php } ?>
+                </td>
+
                 <td><?= $ele['Title'] ?></td>
                 <td><?= $ele['Description'] ?></td>
                 <td><?= $ele['Niveau'] ?></td>
@@ -34,11 +45,14 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                     <button class="delete-btn">Supprimer</button>
                 </td>
             </tr>
-        <?php };?>
+        <?php }; ?>
         </tbody>
     </table>
+
     <div class="countainer-btn-delet">
-    <button class="add-btn">Add New course</button>
+        <a href="courses_create.php">
+        <button class="add-btn">Ajoute Course</button>
+        </a>
     </div>
 </section>
 
