@@ -13,7 +13,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Image</th> <!-- Nouvelle colonne -->
+                <th>Image</th>
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Niveau</th>
