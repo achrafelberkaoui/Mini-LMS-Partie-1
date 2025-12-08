@@ -13,8 +13,9 @@
 
 <header class="top-bar">
     <div class="container">
-        <h1 class="logo">Course Manager</h1>
-
+        
+        <h1 class="logo">Course Manager</a></h1>
+            
         <nav class="nav">
             <a href="courses_list.php">Courses</a>
             <a href="sections_list.php">Sections</a>

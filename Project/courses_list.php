@@ -30,7 +30,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 <td>
                 <?php
                 if(!empty($ele['image'])){ ?>
-                <img src="uploads/<?= $ele['image'] ?>" alt="image" class="img-aa">
+                <img src="../assets/img/<?= $ele['image'] ?>" alt="image" class="img-aa">
                 <?php }else{ ?>
                     <span style = "color: rgba(142, 142, 142, 0.54)" >Aucun Image</span>
                 <?php } ?>
