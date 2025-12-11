@@ -41,8 +41,8 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 <td><?= $ele['Niveau'] ?></td>
                 <td><?= $ele['created_at'] ?></td>
                 <td class="actions">
-                    <button class="edit-btn">Modifier</button>
-                    <button class="delete-btn">Supprimer</button>
+                    <a href ="courses_edit.php?id=<?= $ele['id']?>" > <button class="edit-btn">Modifier</button> </a>
+            <a href ="courses_delete.php?id=<?= $ele['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer ce cours ?')" ><button class="delete-btn">Supprimer</button></a>
                 </td>
             </tr>
         <?php }; ?>

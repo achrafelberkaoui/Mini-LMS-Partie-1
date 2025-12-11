@@ -68,6 +68,7 @@ include "header.php";
                 $passDbDonnes->bind_param("sssss", $imagesName,$title,$description,$niveau,$created_at);
                 if($passDbDonnes->execute()){
                     echo "<p style='color:green'>Cours ajouté avec succès !</p>";
+                    header("refresh:1; url=courses_list.php");
                     $_POST = [];
                 }else{
                          echo "<p style='color:red'>Erreur lors de l'ajout en DB</p>";
