@@ -1,1 +1,68 @@
+<?php
+include "config.php";
+include "header.php";
 
+
+if(!isset($_GET['course_id'])){
+    die("aucun section");
+};
+
+$id = $_GET['course_id'];
+$mes = "SELECT *
+         FROM sections
+         WHERE course_id = $id";
+$reponse = mysqli_query($connec, $mes);
+$rees = mysqli_fetch_all($reponse, MYSQLI_ASSOC);
+?>
+
+
+<section class="sections-container">
+    <h2>Liste des Sections du Cours</h2>
+            <?php   
+            if(empty($rees)){
+                echo "<p style='color: red; font-size: 30px; text-align: center;'>aucun section </p>";
+                include "footer.php";
+                exit;
+                    
+            };
+            ?>
+
+    <table class="sections-table">
+        <thead>
+            <tr>
+
+                <th>ID</th>
+                <th>Course ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Position</th>
+                <th>Created_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($rees as $sec){?>
+            <tr>
+                <td><?= $sec['id']?></td>
+                <td><?= $sec['course_id']?></td>
+                <td><?= $sec['title'] ?></td>
+                <td><?= $sec['content']?></td>
+                <td><?= $sec['position']?></td>
+                <td><?= $sec['created_at']?></td>
+                <td class="actions">
+                    <button class="edit-btn">Modifier</button>
+                    <button class="delete-btn">Supprimer</button>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <div class="add-section-btn">
+        <button><a href="section_create.php">Ajouter une Section</a></button>
+    </div>
+</section>
+
+    <?php
+    include "footer.php";
+    ?>

@@ -35,8 +35,11 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                     <span style = "color: rgba(142, 142, 142, 0.54)" >Aucun Image</span>
                 <?php } ?>
                 </td>
-
-                <td><?= $ele['Title'] ?></td>
+                <td>
+               <a href="section_by_course.php?course_id=<?=$ele['id']?>" style="color: black; text-decoration: none;"> 
+                <?= $ele['Title'] ?>
+               </a>
+               </td>
                 <td><?= $ele['Description'] ?></td>
                 <td><?= $ele['Niveau'] ?></td>
                 <td><?= $ele['created_at'] ?></td>

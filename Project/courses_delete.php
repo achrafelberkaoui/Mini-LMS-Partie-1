@@ -18,4 +18,6 @@ if($sql){
 }else{
     echo "Erreur";
 };
+
+include "footer.php";
 ?>

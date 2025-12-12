@@ -64,3 +64,7 @@ if(isset($_POST['submit'])){
             <button type="button" class="cancel-btn">Cancel</button>
         </a>
     </form>
+
+    <?php
+    include "footer.php";
+    ?>
