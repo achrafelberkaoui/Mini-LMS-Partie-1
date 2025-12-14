@@ -89,7 +89,7 @@ if(isset($_POST['submit'])){
         </div>
 
         <button type="submit" class="submit-btn" name = "submit">Enregistrer</button>
-        <a href="courses_list.php">
+        <a href="sections_list.php">
             <button type="button" class="cancel-btn">Cancel</button>
         </a>
         </form>
