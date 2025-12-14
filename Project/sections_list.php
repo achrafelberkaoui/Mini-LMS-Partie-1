@@ -35,7 +35,13 @@ $rees = mysqli_fetch_all($reponse, MYSQLI_ASSOC);
                 <td><?= $sec['created_at']?></td>
                 <td class="actions">
                     <button class="edit-btn">Modifier</button>
-                    <button class="delete-btn">Supprimer</button>
+                <form action="section_delete.php" method="POST">
+                    <input type ="hidden" name="id" value = "<?= $sec['id']?>">
+                <button class="delete-btn" 
+                onclick="return confirm('Voulez-vous vraiment supprimer la section <?= htmlspecialchars($sec['title']) ?> ?')" type = "submit">
+                Supprimer
+                </button>
+                </form>
                 </td>
             </tr>
             <?php } ?>
