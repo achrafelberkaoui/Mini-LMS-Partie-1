@@ -7,7 +7,7 @@ include "header.php";
 
     <?php
 
-        function Valid_input($data)
+    function Valid_input($data)
     {
         $data = trim($data);
         $data = stripslashes($data) ;
@@ -58,7 +58,6 @@ include "header.php";
         };
         if(empty($errors)){
             $imagesName = time() . "_" . $_FILES['image']['name'];
-            // move_uploaded_file($_FILES['image']['tmp_name'], "C:\\laragon\\www\\LMS Brf\\assets\\img\\$imagesName");
             if(!move_uploaded_file($_FILES['image']['tmp_name'], "C:\\laragon\\www\\LMS Brf\\assets\\img\\$imagesName")){
                  $errors['image'] = "Erreur lors de l'upload de l'image";
             }else{
