@@ -431,6 +431,153 @@ textarea {
   margin-top: 15px;
 }
 
+
+/* ===== ERROR BOX ===== */
+.auth-error {
+  background: #fee2e2;        /* rouge clair */
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Liste des erreurs */
+.auth-error ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.auth-error li {
+  margin-bottom: 6px;
+}
+
+/* ===== SUCCESS BOX (optionnel) ===== */
+.auth-success {
+  background: #dcfce7;        /* vert clair */
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+    /* ===== SIDEBAR ===== */
+    .dash-sidebar {
+      width: 240px;
+      background: linear-gradient(180deg, #4f46e5, #06b6d4);
+      color: #fff;
+      padding: 20px;
+    }
+
+    .dash-logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .dash-menu a {
+      display: block;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .dash-menu a:hover,
+    .dash-menu a.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ===== MAIN ===== */
+    .dash-main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .dash-header {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .dash-header h2 {
+      color: #1f2937;
+    }
+
+    .dash-user {
+      color: #4f46e5;
+      font-weight: bold;
+    }
+
+    /* ===== CARDS ===== */
+    .dash-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .dash-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .dash-card h3 {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .dash-card p {
+      font-size: 28px;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    /* ===== TABLE ===== */
+    .dash-table {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      color: #374151;
+      font-size: 14px;
+    }
+
+    td {
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+
+
 @media (max-width: 600px) {
 
     .courses-table th,
@@ -458,6 +605,11 @@ textarea {
     .actions {
         flex-direction: column;
     }
+          .dash-sidebar {
+        display: none;
+      }
 }
+
+
 
 

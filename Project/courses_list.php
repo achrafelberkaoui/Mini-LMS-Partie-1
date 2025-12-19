@@ -8,7 +8,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
 
 ?>
 <section class="courses-container">
-    <h2>Liste des Cours</h2>
+    <h2>Liste des Cours</h2>    
     <table class="courses-table">
         <thead>
             <tr>

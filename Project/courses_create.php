@@ -93,7 +93,7 @@ include "header.php";
 
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" placeholder="Description du cours"><?=isset($_POST['description'])?trim($_POST['description']):''?></textarea>
+            <textarea id="description" name="description" placeholder="Description du cours"><?=isset($_POST['description'])?$_POST['description']:''?></textarea>
             <?php if (isset($errors['description'])) { ?>
                 <p class='error'><?= $errors['description']; ?></p>
             <?php }
@@ -134,3 +134,7 @@ include "header.php";
         </a>
     </form>
 </section>
+
+<?php
+include "footer.php"
+?>

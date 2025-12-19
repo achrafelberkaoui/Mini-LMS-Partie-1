@@ -41,10 +41,9 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
         $sql->bind_param("sss", $name, $email, $password);
         if($sql->execute()){
             echo "<p style = 'color:green'>SignUp Success</p>";
-            header("refresh:1, location = dashbord.php") ;
+            header("refresh:1, location = dashbored.php") ;
         };
     };
-
     
 };
 
@@ -73,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
       <?php
 if (!empty($errors)) {
     foreach ($errors as $error) {
-        echo "<p style='color:red;'>$error</p>";
+        echo "<p class='auth-error'>$error</p>";
     }
 }
 ?>
@@ -87,4 +86,8 @@ if (!empty($errors)) {
     </p>
   </div>
 </div>
+
+<?php
+include "footer.php"
+?>
 

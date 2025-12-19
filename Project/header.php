@@ -15,8 +15,9 @@
     <div class="container">
         
         <h1 class="logo">Course Manager</a></h1>
-            
         <nav class="nav">
+            <a href="login.php">Login</a>
+            <a href="SIGNUP.php">SignUp</a>
             <a href="courses_list.php">Courses</a>
             <a href="sections_list.php">Sections</a>
         </nav>
