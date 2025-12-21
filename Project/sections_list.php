@@ -26,7 +26,9 @@ $rees = mysqli_fetch_all($reponse, MYSQLI_ASSOC);
                 <th>Content</th>
                 <th>Position</th>
                 <th>Created_at</th>
+                <?php if($_SESSION['role'] == 'admin'){ ?>
                 <th>Actions</th>
+                 <?php };?>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +40,7 @@ $rees = mysqli_fetch_all($reponse, MYSQLI_ASSOC);
                 <td><?= $sec['content']?></td>
                 <td><?= $sec['position']?></td>
                 <td><?= $sec['created_at']?></td>
+                <?php if($_SESSION['role'] == 'admin'){ ?>
                 <td class="actions">
                    <a href="section_edite.php?id=<?=$sec['id']?>"> <button class="edit-btn">Modifier</button> </a>
                 <form action="section_delete.php" method="POST">
@@ -48,6 +51,7 @@ $rees = mysqli_fetch_all($reponse, MYSQLI_ASSOC);
                 </button>
                 </form>
                 </td>
+                 <?php };?>
             </tr>
             <?php } ?>
         </tbody>

@@ -23,6 +23,7 @@ if (isset($_POST['login'])) {
           $_SESSION['email'] = $user['Email'];
           $_SESSION['name'] = $user['Name'];
            $_SESSION['id'] = $user['id'];
+          $_SESSION['role'] = $user['role'];
           header("Location:dashbored.php");
           exit;
         } else {

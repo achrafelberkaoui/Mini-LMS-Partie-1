@@ -12,20 +12,23 @@ if(isset($_SESSION['msg'])){
       }; 
 
 $id = $_SESSION['id'];
-$requt = "SELECT courses.* FROM courses
+$stmt = mysqli_prepare($connec,"SELECT courses.* FROM courses
             join enrollments on courses.id = enrollments.course_id
-            where enrollments.user_id = $id";
-        $res = mysqli_query($connec, $requt);
-        $resu= mysqli_fetch_all($res, MYSQLI_ASSOC);
+            where enrollments.user_id = ?");
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$resu = mysqli_stmt_get_result($stmt);
 ?>
-    
-
+  
 
 <div class="dash-layout">
   <!-- SIDEBAR -->
   <aside class="dash-sidebar">
     <h2 class="dash-logo">Dashboard</h2>
     <nav class="dash-menu">
+        <?php if($_SESSION['role'] == 'admin'){ ?>
+        <a href="statistique.php">statistique</a>
+         <?php };?>
       <a href="dashboard.php" class="active">Courses</a>
       <a href="sections_list.php">Sections</a>
       <a href="logout.php">Logout</a>

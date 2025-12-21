@@ -24,6 +24,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 <th>Niveau</th>
                 <th>Créé le</th>
                 <th>Actions</th>
+                
             </tr>
         </thead>
 
@@ -49,6 +50,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 <td><?= $ele['Niveau'] ?></td>
                 <td><?= $ele['created_at'] ?></td>
                 <td class="actions">
+                <?php if($_SESSION['role'] == 'admin'){ ?>
                 <a href ="courses_edit.php?id=<?= $ele['id']?>" > <button class="edit-btn">Modifier</button> </a>
                 <form action="courses_delete.php" method="POST">
                     <input type ="hidden" name="id" value = "<?= $ele['id']?>">
@@ -57,6 +59,7 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 Supprimer
                 </button>
                 </form>
+                <?php };?>
                 <div class="course-add">
                 <a href="enrollement.php?id=<?= $ele['id'] ?>" class="course-add-btn">+ Ajouter un cours</a>
                 </div>
