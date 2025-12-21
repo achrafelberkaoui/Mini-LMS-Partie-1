@@ -1,0 +1,33 @@
+CREATE TABLE courses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(150) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+);
+CREATE TABLE sections (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(150) NOT NULL,
+  content TEXT,
+  course_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+CREATE TABLE usser (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP 
+);
+
+CREATE TABLE enrollments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  course_id INT NOT NULL,
+  enrolled_at TIMESTAMP,
+
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (course_id) REFERENCES courses(id),
+);

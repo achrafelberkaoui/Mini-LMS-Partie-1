@@ -463,118 +463,129 @@ textarea {
   margin-bottom: 15px;
   font-size: 14px;
 }
+/* ===== DASHBOARD LAYOUT ===== */
+.dash-layout {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
 
-    /* ===== SIDEBAR ===== */
-    .dash-sidebar {
-      width: 240px;
-      background: linear-gradient(180deg, #4f46e5, #06b6d4);
-      color: #fff;
-      padding: 20px;
-    }
+/* ===== SIDEBAR ===== */
+.dash-sidebar {
+  width: 220px;
+  background: #1f2937;
+  color: #fff;
+  padding: 20px;
+}
 
-    .dash-logo {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 30px;
-      text-align: center;
-    }
+.dash-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-    .dash-menu a {
-      display: block;
-      padding: 12px 15px;
-      margin-bottom: 10px;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 15px;
-    }
+.dash-menu a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
 
-    .dash-menu a:hover,
-    .dash-menu a.active {
-      background: rgba(255,255,255,0.2);
-    }
+.dash-menu a:hover,
+.dash-menu a.active {
+  background: #374151;
+}
 
-    /* ===== MAIN ===== */
-    .dash-main {
-      flex: 1;
-      padding: 30px;
-    }
+/* ===== MAIN ===== */
+.dash-main {
+  flex: 1;
+  padding: 30px;
+}
 
-    .dash-header {
-      background: #fff;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
+/* ===== HEADER ===== */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-    .dash-header h2 {
-      color: #1f2937;
-    }
+.dash-add-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .dash-user {
-      color: #4f46e5;
-      font-weight: bold;
-    }
+.dash-add-btn:hover {
+  background: #0056b3;
+}
 
-    /* ===== CARDS ===== */
-    .dash-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+/* ===== TABLE ===== */
+.dash-table {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-    .dash-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
+.dash-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    .dash-card h3 {
-      font-size: 16px;
-      color: #6b7280;
-      margin-bottom: 10px;
-    }
+.dash-table th,
+.dash-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
 
-    .dash-card p {
-      font-size: 28px;
-      font-weight: bold;
-      color: #4f46e5;
-    }
+.dash-table th {
+  background: #f3f4f6;
+}
 
-    /* ===== TABLE ===== */
-    .dash-table {
-      margin-top: 30px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
+/* ===== ACTIONS ===== */
+.dash-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+.dash-edit {
+  color: #ffc107;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #e5e7eb;
-    }
+.dash-delete {
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: bold;
+}
+.course-add {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 10px;
+  height: 30px;
 
-    th {
-      color: #374151;
-      font-size: 14px;
-    }
+}
 
-    td {
-      font-size: 14px;
-      color: #4b5563;
-    }
+.course-add-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 4px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.course-add-btn:hover {
+  background: #0056b3;
+}
 
 
 
@@ -605,9 +616,13 @@ textarea {
     .actions {
         flex-direction: column;
     }
-          .dash-sidebar {
-        display: none;
-      }
+  .dash-layout {
+    flex-direction: column;
+  }
+
+  .dash-sidebar {
+    width: 100%;
+  }
 }
 
 

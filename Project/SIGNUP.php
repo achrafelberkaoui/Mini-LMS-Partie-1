@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once "config.php";
-require_once "header.php";
+
 
 function valideInpu($data){
     $data = htmlspecialchars($data);
@@ -40,14 +41,37 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 
         $sql->bind_param("sss", $name, $email, $password);
         if($sql->execute()){
-            echo "<p style = 'color:green'>SignUp Success</p>";
-            header("refresh:1, location = dashbored.php") ;
+            $_SESSION['name'] = $_POST['name'];
+            $_SESSION['ok'] = "Sign Up succes, Veuillez saiser Email et Password correct pour entrer";
+            header("refresh:1, url = login.php");
         };
     };
     
 };
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Course Manager</title>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="container">
+        
+        <h1 class="logo">Course Manager</a></h1>
+        <nav class="nav">
+            <a href="login.php">LOGIN</a>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+
 
 <div class="auth-container">
   <div class="auth-box">

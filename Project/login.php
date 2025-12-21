@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "config.php";
-require_once "header.php";
 
 $error = [];
 
@@ -22,6 +21,8 @@ if (isset($_POST['login'])) {
         
         if(password_verify($password, $user['PassWord'] ))  {
           $_SESSION['email'] = $user['Email'];
+          $_SESSION['name'] = $user['Name'];
+           $_SESSION['id'] = $user['id'];
           header("Location:dashbored.php");
           exit;
         } else {
@@ -32,10 +33,39 @@ if (isset($_POST['login'])) {
     };
 }
 ?>
+<?php
+// header.php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Course Manager</title>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="container">
+        
+        <h1 class="logo">Course Manager</a></h1>
+        <nav class="nav">
+            <a href="SIGNUP.php">SignUp</a>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
 
 <div class="auth-container">
   <div class="auth-box">
     <h2 class="auth-title">Login</h2>
+    <?php if(isset($_SESSION['ok'])){ ?>
+      <p style="color:green"> Bonjour <?= $_SESSION['name'] . "</br>" . $_SESSION['ok']?> </p>
+     <?php 
+      unset($_SESSION['ok']);
+      }; ?>
 
     <form action="" method="POST">
       <div class="auth-group">

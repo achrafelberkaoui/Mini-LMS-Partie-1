@@ -1,63 +1,73 @@
-<?php require_once "header.php"?>
+<?php
+session_start();
+require_once "config.php";
+require_once "header.php";
+if(!isset($_SESSION['email'])){
+    header("location: login.php");
+    exit;
+};
+?>
+ <?php require_once "header.php"; ?>
+
+<div class="dash-layout">
   <!-- SIDEBAR -->
   <aside class="dash-sidebar">
-    <div class="dash-logo">My Dashboard</div>
+    <h2 class="dash-logo">Dashboard</h2>
     <nav class="dash-menu">
-      <a href="#" class="active">Dashboard</a>
-      <a href="courses_list.php">Courses</a>
+      <a href="dashboard.php" class="active">Courses</a>
       <a href="sections_list.php">Sections</a>
-      <a href="#">Mon Course</a>
-      <a href="">Logout</a>
+      <a href="logout.php">Logout</a>
     </nav>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="dash-main">
 
+    <?php echo "<H2 style='color:green'>" . "Bonjour " . $_SESSION['name'] ."</H2>"  ?>
     <div class="dash-header">
-      <h2>Dashboard</h2>
-      <div class="dash-user">Bienvenue, Admin</div>
+      <h2>Liste des courses</h2>
+      <a href="add_course.php" class="dash-add-btn">+ Ajouter course</a>
     </div>
 
-    <!-- STATS CARDS -->
-    <div class="dash-cards">
-      <div class="dash-card">
-        <h3>Total Courses</h3>
-        <p>12</p>
-      </div>
-      <div class="dash-card">
-        <h3>Total Sections</h3>
-        <p>45</p>
-      </div>
-      <div class="dash-card">
-        <h3>Utilisateurs</h3>
-        <p>8</p>
-      </div>
-    </div>
-
-    <!-- TABLE -->
+    <!-- COURSES TABLE -->
     <div class="dash-table">
-      <h3>Derniers cours</h3>
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Titre</th>
-            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
+          <!-- Exemple statique (DB من بعد) -->
           <tr>
             <td>1</td>
-            <td>HTML Basics</td>
-            <td>2025-01-01</td>
+            <td>HTML</td>
+            <td>Introduction HTML</td>
+            <td class="dash-actions">
+              <a href="#" class="dash-edit">Edit</a>
+              <a href="#" class="dash-delete">Delete</a>
+            </td>
           </tr>
+
           <tr>
             <td>2</td>
-            <td>CSS Advanced</td>
-            <td>2025-01-05</td>
+            <td>CSS</td>
+            <td>CSS avancé</td>
+            <td class="dash-actions">
+              <a href="#" class="dash-edit">Edit</a>
+              <a href="#" class="dash-delete">Delete</a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+  </main>
+</div>
+
+<?php require_once "footer.php"; ?>
+
 

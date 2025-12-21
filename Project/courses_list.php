@@ -1,6 +1,11 @@
 <?php
-include "config.php";
-include "header.php";
+session_start();
+require_once "config.php";
+require_once "header.php";
+if(!isset($_SESSION['email'])){
+    header("location: login.php");
+    exit;
+};
 
 $sql = 'SELECT * FROM courses';
 $resul = mysqli_query($connec, $sql);
@@ -52,7 +57,11 @@ $element = mysqli_fetch_all($resul, MYSQLI_ASSOC);
                 Supprimer
                 </button>
                 </form>
+                <div class="course-add">
+                <a href="enrollement.php?id=<?= $ele['id'] ?>" class="course-add-btn">+ Ajouter un cours</a>
+                </div>
                 </td>
+
             </tr>
         <?php }; ?>
         </tbody>
