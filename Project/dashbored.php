@@ -3,11 +3,23 @@ session_start();
 require_once "config.php";
 require_once "header.php";
 if(!isset($_SESSION['email'])){
-    header("location: login.php");
+    header("location:login.php");
     exit;
 };
+if(isset($_SESSION['msg'])){ 
+     echo "<p style='color:green'>" . $_SESSION['msg'] . "</p>";
+      unset($_SESSION['msg']);
+      }; 
+
+$id = $_SESSION['id'];
+$requt = "SELECT courses.* FROM courses
+            join enrollments on courses.id = enrollments.course_id
+            where enrollments.user_id = $id";
+        $res = mysqli_query($connec, $requt);
+        $resu= mysqli_fetch_all($res, MYSQLI_ASSOC);
 ?>
- <?php require_once "header.php"; ?>
+    
+
 
 <div class="dash-layout">
   <!-- SIDEBAR -->
@@ -26,41 +38,46 @@ if(!isset($_SESSION['email'])){
     <?php echo "<H2 style='color:green'>" . "Bonjour " . $_SESSION['name'] ."</H2>"  ?>
     <div class="dash-header">
       <h2>Liste des courses</h2>
-      <a href="add_course.php" class="dash-add-btn">+ Ajouter course</a>
+      <a href="courses_list.php" class="dash-add-btn">+ Ajouter course</a>
     </div>
+
 
     <!-- COURSES TABLE -->
     <div class="dash-table">
       <table>
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Niveau</th>
+                <th>Créé le</th>
+            </tr>
         </thead>
         <tbody>
-          <!-- Exemple statique (DB من بعد) -->
-          <tr>
-            <td>1</td>
-            <td>HTML</td>
-            <td>Introduction HTML</td>
-            <td class="dash-actions">
-              <a href="#" class="dash-edit">Edit</a>
-              <a href="#" class="dash-delete">Delete</a>
-            </td>
-          </tr>
+<?php foreach($resu as $ele){ ?>
+            <tr>
+                <td><?= $ele['id'] ?></td>
 
-          <tr>
-            <td>2</td>
-            <td>CSS</td>
-            <td>CSS avancé</td>
-            <td class="dash-actions">
-              <a href="#" class="dash-edit">Edit</a>
-              <a href="#" class="dash-delete">Delete</a>
-            </td>
-          </tr>
+                <td>
+                <?php
+                if(!empty($ele['image'])){ ?>
+                <img src="../assets/img/<?= $ele['image'] ?>" alt="image" class="img-aa">
+                <?php }else{ ?>
+                    <span style = "color: rgba(142, 142, 142, 0.54)" >Aucun Image</span>
+                <?php } ?>
+                </td>
+                <td>
+               <a href="section_by_course.php?course_id=<?=$ele['id']?>" style="color: black; text-decoration: none;"> 
+                <?= $ele['Title'] ?>
+               </a>
+               </td>
+                <td><?= $ele['Description'] ?></td>
+                <td><?= $ele['Niveau'] ?></td>
+                <td><?= $ele['created_at'] ?></td>
+            </tr>
+        <?php }; ?>
         </tbody>
       </table>
     </div>

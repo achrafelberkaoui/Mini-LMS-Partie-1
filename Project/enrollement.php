@@ -23,8 +23,16 @@ $coursesUser = "
 $result = mysqli_query($connec, $coursesUser);
 if(mysqli_num_rows($result) == 0){
     $sql = "INSERT INTO enrollments(user_id, course_id)
-            VALUE('$userId', '$courseId')";
-    $envData = mysqli_query($connec, $sql);
-    // print_r($envData);
+            VALUES('$userId', '$courseId')";
+    
+    if(mysqli_query($connec, $sql)){
+    $_SESSION['msg'] = "inscription réussie";
+    header("location:dashbored.php");
+    exit;
+    };
+}else{
+    $_SESSION['msg'] = "déja inscrit";
+    header("location:dashbored.php");
+    exit;
 }
 

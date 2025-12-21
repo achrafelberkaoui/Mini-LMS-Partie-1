@@ -112,6 +112,6 @@ if (!empty($errors)) {
 </div>
 
 <?php
-include "footer.php"
+require_once "footer.php"
 ?>
 
